@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <h1>¿Quieres ser mi novia?</h1>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url(assets/Atardecer.webp);
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #container {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: white;
+        margin-bottom: 1rem;
+        text-align: center;
+        padding-top: 150px;
+      }
+
+      #buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #4caf50;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #no-button {
+        background-color: #f44336;
+      }
+
+      #no-button:hover {
+        background-color: #d32f2f;
+      }
+
+      img {
+        margin-top: 30px;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div></div>
+    <div id="container">
+      <div id="buttons">
+        <button
+          id="yes-button"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#confirmationModal"
+        >
+          Sí 😍
+        </button>
+        <button id="no-button" onmouseover="moveButton()">No 😔</button>
+      </div>
+      <img src="assets/Nosotros.jpeg" alt="imagen" width="500" />
+
+      <!-- Confirmation Modal -->
+      <div
+        class="modal fade"
+        id="confirmationModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                ¿Estás segura de esta decisión?
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Por favor di que sí, y hazme el hombre más feliz del
+              mundo...😍😍😍🥰🥰🥰💚💚💚
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-target="#denyModal"
+                data-bs-toggle="modal"
+                data-bs-dismiss="modal"
+              >
+                No
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="yesAnswerAction()"
+              >
+                Por supuesto que sí
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deny Modal -->
+      <div
+        class="modal fade"
+        id="denyModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">¡Ay! 💔💔💔</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Reconsideralo y compartamos todas nuestras aventuras juntos.
+              😔😭💔
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
+                Está bien
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function yesAnswerAction() {
+        window.location.href = "yes-option.html";
+      }
+
+      function moveButton() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const newWidht = Math.random() * width;
+        const newHeight = Math.random() * height;
+        const noButton = document.getElementById("no-button");
+        noButton.style.position = "absolute";
+        noButton.style.left = newWidht + "px";
+        noButton.style.top = newHeight + "px";
+      }
+    </script>
+  </body>
+</html>
